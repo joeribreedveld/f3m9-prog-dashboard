@@ -9,6 +9,8 @@ import { useState } from "react";
 function Home() {
   const [product, setProduct] = useState(products[0]);
   const [showProduct, setShowProduct] = useState(false);
+  const [showAddProduct, setShowAddProduct] = useState(false);
+  const [name, setName] = useState("");
 
   const productsList = products.map((product: any) => (
     <ProductCard
@@ -26,8 +28,8 @@ function Home() {
 
     const newProduct = {
       id: products.length + 1,
-      name: e.target.name.value,
-      img: "/img.jpg",
+      name: name,
+      img: "/placeholder.jpg",
     };
     console.log(newProduct);
 
@@ -39,7 +41,6 @@ function Home() {
     <>
       <section className={style.home}>
         <h1 className={style.home__h1}>Dashboard</h1>
-        <p>Product List</p>
         {showProduct == true ? (
           <Product
             product={product}
@@ -50,10 +51,36 @@ function Home() {
           ""
         )}
         <section className={style.home__productslist}>
-          <form onSubmit={handleSubmit}>
-            <label htmlFor="name">Name</label>
-            <input type="text" name="name" id="name" placeholder="name" />
-            <button type="submit">Submit</button>
+          <form className={style.home__form} onSubmit={handleSubmit}>
+            <button
+              type="submit"
+              className={style.home__addproduct}
+              onClick={(e) => {
+                setShowAddProduct(!showAddProduct);
+              }}
+            >
+              Add Product
+            </button>
+            {showAddProduct == true ? (
+              <>
+                <label className={style.home__label} htmlFor="name">
+                  Name
+                </label>
+                <input
+                  className={style.home__input}
+                  type="text"
+                  name="name"
+                  id="name"
+                  required
+                  placeholder="Enter product name"
+                  onChange={(e) => {
+                    setName(e.target.value);
+                  }}
+                />
+              </>
+            ) : (
+              ""
+            )}
           </form>
           {productsList}
         </section>
