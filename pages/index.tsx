@@ -7,6 +7,7 @@ import { useState } from "react";
 
 // Functions
 function Home() {
+  const [product, setProduct] = useState(products[0]);
   const [showProduct, setShowProduct] = useState(false);
 
   const productsList = products.map((product: any) => (
@@ -15,6 +16,7 @@ function Home() {
       showProduct={showProduct}
       key={product.id}
       product={product}
+      setProduct={setProduct}
     />
   ));
 
@@ -24,7 +26,11 @@ function Home() {
         <h1 className={style.home__h1}>Dashboard</h1>
         <p>Product List</p>
         {showProduct == true ? (
-          <Product setShowProduct={setShowProduct} showProduct={showProduct} />
+          <Product
+            product={product}
+            setShowProduct={setShowProduct}
+            showProduct={showProduct}
+          />
         ) : (
           ""
         )}

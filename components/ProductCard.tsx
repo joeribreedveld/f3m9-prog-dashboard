@@ -1,5 +1,6 @@
 // Imports
 import style from "../styles/ProductCard.module.scss";
+import products from "../public/products.json";
 import { useRouter } from "next/router";
 
 // TypeScript
@@ -7,6 +8,7 @@ interface ProductCardProps {
   product: any;
   setShowProduct: any;
   showProduct: any;
+  setProduct: any;
 }
 
 // Functions
@@ -14,6 +16,7 @@ function ProductCard({
   product,
   setShowProduct,
   showProduct,
+  setProduct,
 }: ProductCardProps) {
   return (
     <>
@@ -22,6 +25,7 @@ function ProductCard({
         <img
           onClick={() => {
             setShowProduct(!showProduct);
+            setProduct(products[product.id - 1]);
           }}
           className={style.productcard__img}
           src={product.img}
