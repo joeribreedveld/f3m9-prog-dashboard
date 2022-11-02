@@ -1,6 +1,7 @@
 // Imports
 import products from "../public/products.json";
 import ProductCard from "../components/ProductCard";
+import style from "../styles/Home.module.scss";
 
 // Functions
 function Home() {
@@ -10,11 +11,11 @@ function Home() {
 
   return (
     <>
-      <h1>Dashboard</h1>
-      <div>
+      <section className={style.home}>
+        <h1 className={style.home__h1}>Dashboard</h1>
         <p>Product List</p>
-        <ul>{productsList}</ul>
-      </div>
+        <section className={style.home__productslist}>{productsList}</section>
+      </section>
     </>
   );
 }

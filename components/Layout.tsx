@@ -1,4 +1,5 @@
 // Imports
+import style from "../styles/Layout.module.scss";
 
 // TypeScript
 interface LayoutProps {
@@ -9,11 +10,11 @@ interface LayoutProps {
 function Layout({ children }: LayoutProps) {
   return (
     <>
-      <header>
+      <header className={style.header}>
         <p>Header</p>
       </header>
-      <main>{children}</main>
-      <footer>
+      <main className={style.main}>{children}</main>
+      <footer className={style.footer}>
         <p>Footer</p>
       </footer>
     </>
