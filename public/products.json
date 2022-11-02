@@ -1,0 +1,21 @@
+[
+  {
+    "id": 1,
+    "name": "Placeholder"
+  },
+  {
+    "id": 2,
+    "name": "Product 2",
+    "img": "./image.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Product 3",
+    "img": "./image.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Product 4",
+    "img": "./image.jpg"
+  }
+]

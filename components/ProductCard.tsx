@@ -4,7 +4,12 @@
 function ProductCard({ product }: any) {
   return (
     <>
-      <p>Product Card</p>
+      <li>
+        <article>
+          <h2>{product.name}</h2>
+          <img src={product.img} alt="Product image" />
+        </article>
+      </li>
     </>
   );
 }
