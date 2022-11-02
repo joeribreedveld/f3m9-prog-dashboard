@@ -2,17 +2,26 @@
 import style from "../styles/ProductCard.module.scss";
 import { useRouter } from "next/router";
 
-// Functions
-function ProductCard({ product }: any) {
-  const router = useRouter();
+// TypeScript
+interface ProductCardProps {
+  product: any;
+  setShowProduct: any;
+  showProduct: any;
+}
 
+// Functions
+function ProductCard({
+  product,
+  setShowProduct,
+  showProduct,
+}: ProductCardProps) {
   return (
     <>
       <article className={style.productcard}>
         <h2 className={style.productcard__h2}>{product.name}</h2>
         <img
           onClick={() => {
-            router.push(`/products/${product.id}`);
+            setShowProduct(!showProduct);
           }}
           className={style.productcard__img}
           src={product.img}
