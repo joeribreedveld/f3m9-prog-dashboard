@@ -4,8 +4,16 @@
   &__productslist {
     display: grid;
     grid-template-columns: 2;
-    grid-template-columns: 40% 40%;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
     column-gap: 4rem;
     row-gap: 4rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .home {
+    &__productslist {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
   }
 }

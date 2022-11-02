@@ -20,6 +20,21 @@ function Home() {
     />
   ));
 
+  const handleSubmit = (e: any) => {
+    e.preventDefault();
+    console.log(e);
+
+    const newProduct = {
+      id: products.length + 1,
+      name: e.target.name.value,
+      img: "/img.jpg",
+    };
+    console.log(newProduct);
+
+    products.push(newProduct);
+    setProduct(newProduct);
+  };
+
   return (
     <>
       <section className={style.home}>
@@ -34,7 +49,14 @@ function Home() {
         ) : (
           ""
         )}
-        <section className={style.home__productslist}>{productsList}</section>
+        <section className={style.home__productslist}>
+          <form onSubmit={handleSubmit}>
+            <label htmlFor="name">Name</label>
+            <input type="text" name="name" id="name" placeholder="name" />
+            <button type="submit">Submit</button>
+          </form>
+          {productsList}
+        </section>
       </section>
     </>
   );

@@ -20,13 +20,15 @@ function ProductCard({
 }: ProductCardProps) {
   return (
     <>
-      <article className={style.productcard}>
+      <article
+        className={style.productcard}
+        onClick={() => {
+          setShowProduct(!showProduct);
+          setProduct(products[product.id - 1]);
+        }}
+      >
         <h2 className={style.productcard__h2}>{product.name}</h2>
         <img
-          onClick={() => {
-            setShowProduct(!showProduct);
-            setProduct(products[product.id - 1]);
-          }}
           className={style.productcard__img}
           src={product.img}
           alt="Product image"
