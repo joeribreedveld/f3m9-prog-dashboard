@@ -26,12 +26,17 @@ function Home() {
     e.preventDefault();
     console.log(e);
 
+    if (name === "") {
+      return;
+    }
+
     const newProduct = {
       id: products.length + 1,
       name: name,
       img: "/placeholder.jpg",
     };
-    console.log(newProduct);
+
+    setName("");
 
     products.push(newProduct);
     setProduct(newProduct);
